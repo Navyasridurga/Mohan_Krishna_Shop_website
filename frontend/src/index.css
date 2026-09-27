@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-teal-900 font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 3px solid #F4A125;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display font-semibold
+      transition-transform duration-150 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-papaya-500 text-white shadow-card hover:bg-papaya-600;
+  }
+  .btn-secondary {
+    @apply btn bg-lime-500 text-teal-900 shadow-card hover:bg-lime-600;
+  }
+  .btn-outline {
+    @apply btn border-2 border-teal-900 text-teal-900 hover:bg-teal-900 hover:text-white;
+  }
+}
+
+/* One deliberate load-in for the hero only - not applied elsewhere */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise-in {
+  animation: riseIn 0.6s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise-in {
+    animation: none;
+  }
+}

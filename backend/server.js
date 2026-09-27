@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 
-const { initSchema } = require('./config/db');
+// const { initSchema } = require('./config/db');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 
 const menuRoutes = require('./routes/menuRoutes');
@@ -13,7 +13,7 @@ const authRoutes = require('./routes/authRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 
 // Make sure tables exist before we start handling requests
-initSchema();
+//initSchema();
 
 const app = express();
 

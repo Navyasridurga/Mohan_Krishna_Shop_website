@@ -29,8 +29,14 @@ db.pragma('foreign_keys = ON');
  * Idempotent - safe to call every server start.
  */
 function initSchema() {
-  const schema = fs.readFileSync(path.join(__dirname, '..', 'database', 'schema.sql'), 'utf8');
+  const schema = fs.readFileSync(
+    path.join(__dirname, '..', 'database', 'schema.sql'),
+    'utf8'
+  );
   db.exec(schema);
 }
+
+// Initialize database schema when the database module loads
+initSchema();
 
 module.exports = { db, initSchema };
